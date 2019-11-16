@@ -1,8 +1,13 @@
 {
-  "name": "mobile",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular",
-  "root": "apps/mobile"
+  "defaultProject": "mobile",
+  "projects": {
+    "mobile": {
+      "name": "mobile",
+      "integrations": {
+        "cordova": {}
+      },
+      "type": "angular",
+      "root": "apps/mobile"
+    }
+  }
 }
