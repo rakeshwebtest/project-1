@@ -1,0 +1,33 @@
+{
+  "npmScope": "theapp",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "website": {
+      "tags": [
+        "website"
+      ]
+    },
+    "website-e2e": {
+      "tags": []
+    },
+    "mobile": {
+      "tags": [
+        "mobile"
+      ]
+    },
+    "mobile-e2e": {
+      "tags": []
+    },
+    "backend": {
+      "tags": [
+        "backend"
+      ]
+    }
+  }
+}
