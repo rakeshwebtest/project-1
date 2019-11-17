@@ -10,6 +10,6 @@ jobs:
           command: npm install
       - run:
           name: Building android
-          command: yarn mobile:build
+          command: npm run mobile:build
       - store_artifacts:
           path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
