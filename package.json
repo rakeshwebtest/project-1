@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "mobile:serve": "ionic serve --project=mobile",
-    "mobile:prod": "ionic build --prod --project=mobile && cordova build android",
+    "mobile:build": "ionic build --prod --project=mobile && cordova build android",
     "mobile:run-android": "ionic build --prod --project=mobile && cordova run android --device",
     "build": "ng build",
     "test": "ng test",
