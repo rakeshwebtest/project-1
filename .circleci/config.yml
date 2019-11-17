@@ -91,7 +91,7 @@ workflows:
       #       - install
       - build:
           requires:
-            - lint
+            - install
           filters:
             branches:
               only: master
