@@ -9,25 +9,22 @@
   },
   "projects": {
     "website": {
-      "tags": [
-        "website"
-      ]
+      "tags": ["website"]
     },
     "website-e2e": {
       "tags": []
     },
     "mobile": {
-      "tags": [
-        "mobile"
-      ]
+      "tags": ["mobile"]
     },
     "mobile-e2e": {
       "tags": []
     },
     "backend": {
-      "tags": [
-        "backend"
-      ]
+      "tags": ["backend"]
+    },
+    "utils": {
+      "tags": ["utils"]
     }
   }
 }

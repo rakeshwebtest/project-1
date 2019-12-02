@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,10 +7,21 @@
       Home
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <form #loginForm="ngForm" novalidate>
+    <ion-row responsive-sm>
+      <ion-col>
+        <ion-button expand="block" color="light" (click)="signInWithGoogle()">
+          <ion-icon name="custom-google" class="custom-google"></ion-icon>
+          Google Login
+        </ion-button>
+
+        <!-- <button ion-button (click)="signInWithGoogle()" color="light" block>
+          Login with Google
+        </button> -->
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>

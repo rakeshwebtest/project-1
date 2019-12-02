@@ -1,13 +1,19 @@
 import { Module } from '@nestjs/common';
-
 import { AppController } from './app.controller';
-import { UserController } from './user.controller';
-import { AppService } from './app.service';
-import { DbService } from './db.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
+import { UsersModule } from './users/users.module';
+import { User } from './users/user.entity';
+const ormConfig = require('../../../../ormconfig.json')
 
 @Module({
-  imports: [],
-  controllers: [AppController, UserController],
-  providers: [AppService, DbService],
+  imports: [
+    TypeOrmModule.forRoot({...ormConfig,entities:[User]}),
+    UsersModule,
+  ],
+  controllers: [AppController],
+  providers: [],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private readonly connection: Connection) { }
+}
