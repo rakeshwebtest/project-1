@@ -10,6 +10,23 @@
 </ion-header> -->
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+            <!-- <img src="assets/images/home.png" alt="your image"> -->
+            <ion-img src="assets/images/home.png"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="assets/images/home.png"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="assets/images/home.png"></ion-img>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+
   <form #loginForm="ngForm" novalidate>
     <ion-row responsive-sm>
       <ion-col>
@@ -17,7 +34,7 @@
           <ion-icon name="custom-google" class="custom-google"></ion-icon>
           Google Login
         </ion-button>
-
+        
         <!-- <button ion-button (click)="signInWithGoogle()" color="light" block>
           Login with Google
         </button> -->

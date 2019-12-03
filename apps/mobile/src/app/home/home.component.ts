@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
-
 import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from "angularx-social-login";
 import { AppHttpClient } from '@theapp/utils';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'theapp-home',
@@ -17,9 +17,13 @@ export class HomeComponent {
   login = {};
   submitted = false;
   user: SocialUser;
+  slideOpts = {
+
+  };
   constructor(
     private authService: AuthService,
-    private http: AppHttpClient
+    private http: AppHttpClient,
+    private router:Router
   ) { }
 
   test(response) {
@@ -32,7 +36,7 @@ export class HomeComponent {
   }
   // login callback
   loginCallback(response) {
-    console.log(response);
+
     if (response.status === "PARTIALLY_AUTHENTICATED") {
       var code = response.code;
       var csrf = response.state;
@@ -58,6 +62,7 @@ export class HomeComponent {
   }
 
   signInWithGoogle(): void {
+    this.router.navigate(['/sign-in']);
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       delete user.id;
       this.http.post('user', user).subscribe(res => {

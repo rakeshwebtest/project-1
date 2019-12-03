@@ -142,16 +142,7 @@
             "tsConfig": "apps/mobile/tsconfig.app.json",
             "assets": [
               "apps/mobile/src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./assets/svg"
-              }
+              "apps/mobile/src/assets"
             ],
             "styles": [
               "apps/mobile/src/styles.scss",

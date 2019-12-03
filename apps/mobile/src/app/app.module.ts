@@ -10,6 +10,8 @@ import { GoogleLoginProvider } from "angularx-social-login";
 import { FormsModule } from "@angular/forms";
 import { AppHttpClient, AppHttpClientCreator, HttpInterceptorService } from '@theapp/utils';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,26 +21,39 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  }, {
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 
-const config = new AuthServiceConfig([
+const config: any = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider("712248616094-54q4g8qhskhij9dbc0g1s7p8ecu02bfr.apps.googleusercontent.com")
   }
 ]);
+export function provideConfig() {
+  return config;
+}
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SignInComponent, DashboardComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
-    SocialLoginModule.initialize(config),
+    SocialLoginModule,
     IonicModule.forRoot()
   ],
   providers: [{
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }, {
     provide: AppHttpClient,
     useFactory: AppHttpClientCreator,
     deps: [HttpClient]
