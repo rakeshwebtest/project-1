@@ -5,6 +5,6 @@
   "username": "root",
   "password": "the@123",
   "database": "test",
-  "entities": ["apps/bankend/src/**/**.entity.ts"],
+  "entities": ["apps/backend/src/app/**/*.entity.ts"],
   "synchronize": true
 }

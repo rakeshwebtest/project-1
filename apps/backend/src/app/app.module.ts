@@ -8,7 +8,7 @@ const ormConfig = require('../../../../ormconfig.json')
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({...ormConfig,entities:[User]}),
+    TypeOrmModule.forRoot({ ...ormConfig, entities: [User] }),
     UsersModule,
   ],
   controllers: [AppController],
