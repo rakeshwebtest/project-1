@@ -3,12 +3,16 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { UsersModule } from './users/users.module';
-import { User } from './users/user.entity';
-const ormConfig = require('../../../../ormconfig.json')
+import { User, Meeting } from './entities/index';
+// const ormConfig = require('../../../../ormconfig.json')
+//  TypeOrmModule.forRoot({ ...ormConfig, entities: [User, Meeting] }),
+import envConfig from '.././config.env';
+
+const { ormtype: ormConfig } = envConfig;
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({ ...ormConfig, entities: [User] }),
+    TypeOrmModule.forRoot({ ...ormConfig, entities: [User, Meeting] }),
     UsersModule,
   ],
   controllers: [AppController],

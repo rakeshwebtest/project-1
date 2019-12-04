@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "the@123",
-  "database": "test",
+  "database": "nah",
   "entities": ["apps/backend/src/app/**/*.entity.ts"],
   "synchronize": true
 }

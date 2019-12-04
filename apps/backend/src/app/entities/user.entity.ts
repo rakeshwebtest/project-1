@@ -1,27 +1,25 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity } from './base.entity';
 
-@Entity({ name: "user" })
-export class User {
+@Entity({ name: "users" })
+export class User extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column({ length: 25 })
+    @Column({ length: 25, nullable: true })
     name: string;
 
-    @Column({ length: 25 })
+    @Column({ length: 25, nullable: true })
     firstName: string;
 
-    @Column({ length: 25 })
+    @Column({ length: 25, nullable: true })
     lastName: string;
 
     @Column({ length: 25 })
     email: string;
 
-    @Column({ length: 250 })
+    @Column({ length: 250, nullable: true })
     photoUrl: string;
 
-    @Column({ length: 25 })
+    @Column({ length: 25, nullable: true })
     provider: string;
 
     @Column({ type: "text" })
