@@ -1,2 +1,3 @@
-export { User } from './user.entity';
-export { Meeting } from './meetings.entity';
+export { UserEntity } from './user.entity';
+export { MeetingEntity } from './meeting.entity';
+export { GroupEntity } from './group.entity';

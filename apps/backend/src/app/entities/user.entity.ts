@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseEntity } from './base.entity';
+import { GroupEntity } from './group.entity';
 
-@Entity({ name: "users" })
-export class User extends BaseEntity {
+@Entity({ name: "user" })
+export class UserEntity extends BaseEntity {
 
     @Column({ length: 25, nullable: true })
     name: string;
@@ -30,4 +31,7 @@ export class User extends BaseEntity {
 
     @Column({ length: 25, default: '' })
     country: string;
+
+    @OneToMany(type => GroupEntity, group => group.createdBy)
+    groups: GroupEntity[];
 }

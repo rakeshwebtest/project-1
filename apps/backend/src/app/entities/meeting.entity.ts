@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 
-@Entity({ name: "meetings" })
-export class Meeting extends BaseEntity {
+@Entity({ name: "meeting" })
+export class MeetingEntity extends BaseEntity {
 
     @Column({ length: 25 })
     name: string;
