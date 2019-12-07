@@ -9,36 +9,33 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide>
+<ion-content class="ion-vertical-align-content">
+  <ion-row class="ion-text-center">
+    <ion-col>logo here</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-card>
+      <ion-card-content>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide>
             <!-- <img src="assets/images/home.png" alt="your image"> -->
             <ion-img src="assets/images/home.png"></ion-img>
-        </ion-slide>
-        <ion-slide>
+          </ion-slide>
+          <ion-slide>
             <ion-img src="assets/images/home.png"></ion-img>
-        </ion-slide>
-        <ion-slide>
+          </ion-slide>
+          <ion-slide>
             <ion-img src="assets/images/home.png"></ion-img>
-        </ion-slide>
-      </ion-slides>
-    </ion-card-content>
-  </ion-card>
-
-  <form #loginForm="ngForm" novalidate>
-    <ion-row responsive-sm>
-      <ion-col>
-        <ion-button expand="block" color="light" (click)="signInWithGoogle()">
-          <ion-icon name="custom-google" class="custom-google"></ion-icon>
-          Google Login
-        </ion-button>
-        
-        <!-- <button ion-button (click)="signInWithGoogle()" color="light" block>
-          Login with Google
-        </button> -->
-      </ion-col>
-    </ion-row>
-  </form>
+          </ion-slide>
+        </ion-slides>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+  <ion-row>
+    <ion-button color="light" (click)="signInWithGoogle()">
+      <ion-icon class="custom-google"></ion-icon>
+      Google Login
+    </ion-button>
+    <form #loginForm="ngForm" novalidate></form>
+  </ion-row>
 </ion-content>

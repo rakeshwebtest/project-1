@@ -12,6 +12,7 @@ import { AppHttpClient, AppHttpClientCreator, HttpInterceptorService } from '@th
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChooseUserGroupsComponent } from './sign-in/choose-user-groups/choose-user-groups.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +25,10 @@ const routes: Routes = [
   }, {
     path: 'sign-in',
     component: SignInComponent
+  },
+  {
+    path: 'choose-user-group',
+    component: ChooseUserGroupsComponent
   },
   {
     path: 'dashboard',
@@ -41,7 +46,7 @@ export function provideConfig() {
   return config;
 }
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SignInComponent, DashboardComponent],
+  declarations: [AppComponent, HomeComponent, SignInComponent, DashboardComponent, ChooseUserGroupsComponent],
   imports: [
     BrowserModule,
     FormsModule,

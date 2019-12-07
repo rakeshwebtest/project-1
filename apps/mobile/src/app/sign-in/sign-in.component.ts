@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'theapp-sign-in',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  onCreateGroup() {
+    this.router.navigate(['/choose-user-group']);
+  }
+  updateSignIn() {
+    this.router.navigate(['/dashboard']);
+  }
 }

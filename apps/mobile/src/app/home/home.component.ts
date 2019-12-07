@@ -23,7 +23,7 @@ export class HomeComponent {
   constructor(
     private authService: AuthService,
     private http: AppHttpClient,
-    private router:Router
+    private router: Router
   ) { }
 
   test(response) {
@@ -62,11 +62,12 @@ export class HomeComponent {
   }
 
   signInWithGoogle(): void {
-    // this.router.navigate(['/sign-in']);
+    this.router.navigate(['/sign-in']);
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       delete user.id;
       this.http.post('user/login', user).subscribe(res => {
         console.log('ressss', res);
+        this.router.navigate(['/sign-in']);
       });
       // this.navCtrl.setRoot(TabsPage);
     });
