@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { LoadingController, AlertController, Platform } from '@ionic/angular';
 import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import {
@@ -7,6 +8,8 @@ import {
 } from "angularx-social-login";
 import { AppHttpClient } from '@theapp/utils';
 import { Route, Router } from '@angular/router';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'theapp-home',
@@ -23,7 +26,12 @@ export class HomeComponent {
   constructor(
     private authService: AuthService,
     private http: AppHttpClient,
-    private router: Router
+    private router: Router,
+    private googlePlus: GooglePlus,
+    private nativeStorage: NativeStorage,
+    public loadingController: LoadingController,
+    private platform: Platform,
+    public alertController: AlertController
   ) { }
 
   test(response) {
@@ -79,6 +87,51 @@ export class HomeComponent {
 
   signOut(): void {
     this.authService.signOut();
+  }
+
+  async doGoogleLogin() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...'
+    });
+    this.presentLoading(loading);
+    this.googlePlus.login({
+      'scopes': '', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+      'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+    })
+      .then(user => {
+        //save user data on the native storage
+        this.nativeStorage.setItem('google_user', {
+          name: user.displayName,
+          email: user.email,
+          picture: user.imageUrl
+        })
+          .then(() => {
+            this.router.navigate(["/user"]);
+          }, (error) => {
+            console.log(error);
+          })
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        if (!this.platform.is('cordova')) {
+          this.presentAlert();
+        }
+        loading.dismiss();
+      })
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      message: 'Cordova is not available on desktop. Please try this in a real device or in an emulator.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+
+  async presentLoading(loading) {
+    return await loading.present();
   }
 
 }

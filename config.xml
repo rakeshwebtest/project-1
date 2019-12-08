@@ -94,10 +94,17 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
-    <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-googleplus" spec="^8.2.1">
+        <variable name="REVERSED_CLIENT_ID" value="712248616094-lkqulv5ng4p2uvo2516924in2gontqg3.apps.googleusercontent.com" />
+        <variable name="WEB_APPLICATION_CLIENT_ID" value="712248616094-54q4g8qhskhij9dbc0g1s7p8ecu02bfr.apps.googleusercontent.com" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+    </plugin>
+    <plugin name="cordova-plugin-nativestorage" spec="^2.3.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <engine name="android" spec="7.0.0" />
+    <engine name="browser" spec="5.0.4" />
 </widget>

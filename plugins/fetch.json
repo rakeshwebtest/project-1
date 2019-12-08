@@ -10,7 +10,7 @@
   "cordova-plugin-statusbar": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-statusbar@2.4.2"
+      "id": "cordova-plugin-statusbar@^2.4.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -26,7 +26,7 @@
   "cordova-plugin-splashscreen": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-splashscreen@5.0.2"
+      "id": "cordova-plugin-splashscreen@^5.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -45,6 +45,25 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-keyboard@^2.0.5"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-googleplus": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googleplus"
+    },
+    "is_top_level": true,
+    "variables": {
+      "REVERSED_CLIENT_ID": "712248616094-lkqulv5ng4p2uvo2516924in2gontqg3.apps.googleusercontent.com",
+      "WEB_APPLICATION_CLIENT_ID": "712248616094-54q4g8qhskhij9dbc0g1s7p8ecu02bfr.apps.googleusercontent.com"
+    }
+  },
+  "cordova-plugin-nativestorage": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-nativestorage"
     },
     "is_top_level": true,
     "variables": {}

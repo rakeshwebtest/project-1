@@ -7,30 +7,29 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.nah.app"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "com.nah.app"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.nah.app"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.nah.app"
-    },
-    "cordova-plugin-ionic-webview": {
-      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+    "cordova-plugin-googleplus": {
+      "WEB_APPLICATION_CLIENT_ID": "712248616094-54q4g8qhskhij9dbc0g1s7p8ecu02bfr.apps.googleusercontent.com",
       "PACKAGE_NAME": "com.nah.app"
     },
     "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "com.nah.app"
     },
-    "cordova-plugin-googleplus": {
-      "PLAY_SERVICES_VERSION": "15.0.1",
+    "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "com.nah.app"
     },
     "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.nah.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.nah.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.nah.app"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.nah.app"
     }
   },

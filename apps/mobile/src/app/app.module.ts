@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouteReuseStrategy } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HomeComponent } from './home/home.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
@@ -13,6 +14,10 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { SignInComponent } from './sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChooseUserGroupsComponent } from './sign-in/choose-user-groups/choose-user-groups.component';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 const routes: Routes = [
   {
     path: '',
@@ -42,6 +47,7 @@ const config: any = new AuthServiceConfig([
     provider: new GoogleLoginProvider("712248616094-54q4g8qhskhij9dbc0g1s7p8ecu02bfr.apps.googleusercontent.com")
   }
 ]);
+
 export function provideConfig() {
   return config;
 }
@@ -55,14 +61,21 @@ export function provideConfig() {
     SocialLoginModule,
     IonicModule.forRoot()
   ],
-  providers: [{
-    provide: AuthServiceConfig,
-    useFactory: provideConfig
-  }, {
-    provide: AppHttpClient,
-    useFactory: AppHttpClientCreator,
-    deps: [HttpClient]
-  }, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },],
+  providers: [
+    StatusBar,
+    NativeStorage,
+    GooglePlus,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: AppHttpClient,
+      useFactory: AppHttpClientCreator,
+      deps: [HttpClient]
+    }, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
